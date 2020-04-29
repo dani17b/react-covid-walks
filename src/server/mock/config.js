@@ -7,13 +7,13 @@ import joseFriendsInfo from './data/jose_friends_info.json';
 export const serverMockConfig = {
   endpoints: {
     '/login': {
-      POST: credentials => ('pepe' === credentials.login) ? adminInfo : userInfo
+      POST: credentials => ('pepe' === credentials.login ? adminInfo : userInfo)
     },
     '/walks': {
       GET: walksInfo
     },
     '/friends': {
-      GET: userLogin => ('pepe' === userLogin) ? pepeFriendsInfo : joseFriendsInfo
+      GET: params => 'pepe' === params.user ? pepeFriendsInfo : joseFriendsInfo
     }
   }
 };
