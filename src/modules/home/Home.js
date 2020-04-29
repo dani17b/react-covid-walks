@@ -1,5 +1,6 @@
 import React from 'react';
 import './home.scss';
+import Card from '../../components/card/Card';
 
 /*function Home(props) {
   return (
@@ -58,24 +59,13 @@ class Home extends React.Component {
     return data;
   }
 
-  renderItem(data) {
-    return (
-      <div class={'item' + (this.state.itemsVisible ? ' visible' : '')}>
-        <div class="content">{data.name}</div>
-        <div class="options">
-          <div>elemento 1</div>
-          <div>elemento 2</div>
-          <div>elemento 3</div>
-        </div>
-      </div>
-    );
-  }
-
   render() {
     return (
       <div className="home">
         <div className="home__list">
-          {this.getData().map(item => this.renderItem(item))}
+          {this.getData().map((item, i) => (
+            <Card key={i} visible={this.state.itemsVisible} data={item} />
+          ))}
         </div>
       </div>
     );
