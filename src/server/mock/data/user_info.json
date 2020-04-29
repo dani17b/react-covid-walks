@@ -1,3 +1,5 @@
 {
-    "name" : "Pepe"
+    "login" : "jose",
+    "name" : "Jose",
+    "rol" : "user"
 }

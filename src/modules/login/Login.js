@@ -13,7 +13,7 @@ function Login(props) {
           className='login__form'
           onSubmit={e => {
             e.preventDefault();
-            login({ user: 'user', password: 'password' });
+            login({ login: 'jose', password: 'password' });
           }}
         >
           <input

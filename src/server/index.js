@@ -6,10 +6,14 @@ export const fetch = (url, options) => {
     Config.useMockData &&
     Object.keys(serverMockConfig.endpoints).indexOf(url) !== -1
   ) {
-    const urlData =
+    let urlData =
       serverMockConfig.endpoints[url][
         options && options.method ? options.method.toUpperCase() : 'GET'
       ];
+
+    if (typeof urlData == 'function') {
+      urlData = urlData(options.body);
+    }
 
     if (urlData) {
       return new Promise(resolve => {
