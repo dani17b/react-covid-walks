@@ -1,6 +1,8 @@
 import React from 'react';
 import './home.scss';
 import Card from '../../components/card/Card';
+import { connect } from 'react-redux';
+import { findWalks } from './actions';
 
 /*function Home(props) {
   return (
@@ -23,47 +25,28 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    setTimeout(
-      () =>
-        this.setState({
-          itemsVisible: true
-        }),
-      1000
-    );
+    // Cargar la info del servidor
+    this.props.findWalks();
   }
 
-  getData() {
-    const data = [
-      {
-        id: 1,
-        name: 'Paseo 1'
-      },
-      {
-        id: 2,
-        name: 'Paseo 2'
-      },
-      {
-        id: 3,
-        name: 'Paseo 3'
-      },
-      {
-        id: 4,
-        name: 'Paseo 4'
-      },
-      {
-        id: 5,
-        name: 'Paseo 5'
-      }
-    ];
-
-    return data;
+  componentWillReceiveProps(nextProps) {
+    if (this.props.walks.length != nextProps.walks.length) {
+      setTimeout(
+        () =>
+          this.setState({
+            itemsVisible: true
+          }),
+        1000
+      );
+    }
   }
 
   render() {
     return (
       <div className="home">
+        <div>Hola {this.props.user.name}</div>
         <div className="home__list">
-          {this.getData().map((item, i) => (
+          {this.props.walks.map((item, i) => (
             <Card key={i} visible={this.state.itemsVisible} data={item} />
           ))}
         </div>
@@ -72,4 +55,12 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+export default connect(
+  store => ({
+    walks: store.home.walks,
+    user: store.login.userInfo
+  }),
+  dispatch => ({
+    findWalks: () => dispatch(findWalks())
+  })
+)(Home);
