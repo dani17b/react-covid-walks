@@ -3,8 +3,9 @@
     flex: 1;
     &__list{
         background-color: red;
-        &__item{
-            background-color: green;
-        }
+    }
+
+    .item {
+        background-color: green;
     }
 }
