@@ -4,6 +4,13 @@ import Header from './components/header/Header';
 import Home from './modules/home/Home';
 import Login from './modules/login/Login';
 import { connect } from 'react-redux';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from 'react-router-dom';
+import PrivateRoute from './components/privateRoute/PrivateRoute';
 
 function App(props) {
   const { userInfo } = props;
@@ -11,8 +18,23 @@ function App(props) {
     <div className="app">
       <div className="app-bg"></div>
       <Header />
-      {userInfo == null && <Login />}
-      {userInfo != null && <Home />}
+      <Router>
+        <Switch>
+          <Route path="/login">
+            {!userInfo && <Login />}
+            {userInfo && (
+              <Redirect
+                to={{
+                  pathname: '/'
+                }}
+              />
+            )}
+          </Route>
+          <PrivateRoute path="/">
+            <Home />
+          </PrivateRoute>
+        </Switch>
+      </Router>
     </div>
   );
 }

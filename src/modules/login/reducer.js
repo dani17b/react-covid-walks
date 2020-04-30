@@ -1,7 +1,8 @@
 import { USER_LOGIN_REQUEST, USER_LOGIN_RESPONSE } from './actions';
+import getUserInfo from '../../utils/ApplicationUtils';
 
 const initialState = {
-  userInfo: null,
+  userInfo: getUserInfo(),
   loading: false
 };
 

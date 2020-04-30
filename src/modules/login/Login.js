@@ -24,14 +24,18 @@ const Login = props => {
             className="login__form__input"
             placeholder="Nombre de usuario"
             value={userLogin.login}
-            onChange={e => setUserLogin({ ...userLogin, login: e.target.value })}
+            onChange={e =>
+              setUserLogin({ ...userLogin, login: e.target.value })
+            }
           />
           <input
             type="password"
             className="login__form__input"
             placeholder="Contraseña"
             value={userLogin.password}
-            onChange={e => setUserLogin({ ...userLogin, password: e.target.value })}
+            onChange={e =>
+              setUserLogin({ ...userLogin, password: e.target.value })
+            }
           />
           <button className="login__form__button">Iniciar sesión</button>
         </form>
