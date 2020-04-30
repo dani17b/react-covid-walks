@@ -47,7 +47,7 @@ class Home extends React.Component {
   render() {
     return (
       <div className="home">
-        <UsersList users={this.props.friends} />
+        <UsersList users={this.props.friends} onClickUser={user => window.location = ('/friend/' + user.id)} />
         <div className="home__list">
           {this.props.walks.map((item, i) => (
             <Card
