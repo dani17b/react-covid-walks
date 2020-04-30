@@ -40,4 +40,9 @@
       }
     }
   }
+  &__loading{
+      display: flex;
+      flex: 1;
+      background-color: white;
+  }
 }

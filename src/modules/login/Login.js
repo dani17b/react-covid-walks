@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import './login.scss';
 import { login } from './actions';
 import { IoIosInformationCircleOutline } from 'react-icons/io';
+import LottieAnimation, {
+  LOTTIE_ANIMATION_TYPE
+} from '../../components/lottie/Lottie';
 
 const Login = props => {
   const { login, loading, error } = props;
@@ -16,9 +19,6 @@ const Login = props => {
           className="login__form"
           onSubmit={e => {
             e.preventDefault();
-
-
-            console.log("prueba parche")
 
             login(userLogin);
           }}
@@ -54,7 +54,11 @@ const Login = props => {
           </div>
         </form>
       )}
-      {loading && <div className="login__loading">Cargando</div>}
+      {loading && (
+        <div className="login__loading">
+          <LottieAnimation animation={LOTTIE_ANIMATION_TYPE.LOADING} />
+        </div>
+      )}
     </div>
   );
 };
