@@ -42,8 +42,7 @@ module.exports = {
         "camelcase" : ["error", {"properties": "never"}],
 
         // Validacion de propiedades
-        "react/prop-types" : "never",
-        "react/no-string-refs" : "never",
+        "react/no-deprecated" : "never",
 
         // Tamano de archivos, funciones y anidamientos
         "max-depth": ["error", 4],
@@ -55,8 +54,6 @@ module.exports = {
 
         // Reglas para warnings de elementos permitidos en depuracion
         "no-console" : "warn",
-        "no-debugger" : "warn",
-
-        "react/no-deprecated" : "warn"
+        "no-debugger" : "warn"
     }
 }

@@ -1,9 +1,14 @@
-import { USER_LOGIN_REQUEST, USER_LOGIN_RESPONSE } from './actions';
+import {
+  USER_LOGIN_REQUEST,
+  USER_LOGIN_RESPONSE,
+  USER_LOGIN_RESPONSE_ERROR
+} from './actions';
 import getUserInfo from '../../utils/ApplicationUtils';
 
 const initialState = {
   userInfo: getUserInfo(),
-  loading: false
+  loading: false,
+  error: null
 };
 
 const login = (state = initialState, action) => {
@@ -14,6 +19,12 @@ const login = (state = initialState, action) => {
         ...state,
         userInfo: action.userInfo || null,
         loading: action.type === USER_LOGIN_REQUEST
+      };
+    case USER_LOGIN_RESPONSE_ERROR:
+      return {
+        ...state,
+        error: action.error,
+        loading: false
       };
     default:
       return state;

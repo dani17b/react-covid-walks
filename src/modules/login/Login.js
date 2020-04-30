@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import './login.scss';
 import { login } from './actions';
+import { IoIosInformationCircleOutline } from 'react-icons/io';
 
 const Login = props => {
-  const { login, loading } = props;
+  const { login, loading, error } = props;
 
   const [userLogin, setUserLogin] = useState({ login: '', password: '' });
 
@@ -38,6 +39,16 @@ const Login = props => {
             }
           />
           <button className="login__form__button">Iniciar sesión</button>
+          <div
+            className="login__form__error"
+            style={{
+              opacity: error != null ? 1 : 0,
+              height: error != null ? 'auto' : 0
+            }}
+          >
+            <IoIosInformationCircleOutline className="icon" />
+            <span className="message">Error al hacer iniciar sesión</span>
+          </div>
         </form>
       )}
       {loading && <div className="login__loading">Cargando</div>}
@@ -47,7 +58,8 @@ const Login = props => {
 
 export default connect(
   store => ({
-    loading: store.login.loading
+    loading: store.login.loading,
+    error: store.login.error
   }),
   dispatch => ({
     login: credentials => dispatch(login(credentials))

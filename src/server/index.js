@@ -34,7 +34,7 @@ export const fetch = (url, options) => {
 
     if (typeof urlData == 'function') {
       urlData = urlData(
-        httpMethod == 'GET' ? getQueryParams(url) : options.body
+        httpMethod === 'GET' ? getQueryParams(url) : options.body
       );
     }
 

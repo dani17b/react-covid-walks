@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 const PrivateRoute = ({ children, user, restrictedTo, ...rest }) => {
   const userIsLogged = user != null;
   const userHasPermission =
-    userIsLogged && (!restrictedTo || restrictedTo.indexOf(user.rol) != -1);
+    userIsLogged && (!restrictedTo || restrictedTo.indexOf(user.rol) !== -1);
 
   return (
     <Route

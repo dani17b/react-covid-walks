@@ -7,13 +7,22 @@ import joseFriendsInfo from './data/jose_friends_info.json';
 export const serverMockConfig = {
   endpoints: {
     '/login': {
-      POST: credentials => ('pepe' === credentials.login ? adminInfo : userInfo)
+      POST: credentials => {
+        if (['pepe', 'juan'].indexOf(credentials.login) === -1) {
+          return {
+            error: 'USER_NOT_FOUND'
+          };
+        }
+
+        return 'pepe' === credentials.login ? adminInfo : userInfo;
+      }
     },
     '/walks': {
       GET: walksInfo
     },
     '/friends': {
-      GET: params => 'pepe' === params.user ? pepeFriendsInfo : joseFriendsInfo
+      GET: params =>
+        'pepe' === params.user ? pepeFriendsInfo : joseFriendsInfo
     }
   }
 };

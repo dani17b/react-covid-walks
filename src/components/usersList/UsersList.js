@@ -10,7 +10,8 @@ const UsersList = props => {
         <div className="user" key={i}>
           <img
             src={user.image}
-            className={'image' + (user.status == 'online' ? ' active' : '')}
+            className={'image' + (user.status === 'online' ? ' active' : '')}
+            alt='Foto del usuario'
           />
           <span className="name">{user.name}</span>
         </div>

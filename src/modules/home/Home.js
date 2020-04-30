@@ -33,7 +33,7 @@ class Home extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.walks.length != nextProps.walks.length) {
+    if (this.props.walks.length !== nextProps.walks.length) {
       setTimeout(
         () =>
           this.setState({
@@ -58,6 +58,9 @@ class Home extends React.Component {
             />
           ))}
         </div>
+        {/* <div className="walk_detail_control">
+          <ActiveWalkDetail />
+          </div> */}
       </div>
     );
   }
