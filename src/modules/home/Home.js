@@ -2,7 +2,8 @@ import React from 'react';
 import './home.scss';
 import Card from '../../components/card/Card';
 import { connect } from 'react-redux';
-import { findWalks } from './actions';
+import { findWalks, findUserFriends } from './actions';
+import UsersList from '../../components/usersList/UsersList';
 
 /*function Home(props) {
   return (
@@ -27,6 +28,8 @@ class Home extends React.Component {
   componentDidMount() {
     // Cargar la info del servidor
     this.props.findWalks();
+
+    this.props.findUserFriends(this.props.user.login);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -44,7 +47,7 @@ class Home extends React.Component {
   render() {
     return (
       <div className="home">
-        <div>Hola {this.props.user.name}</div>
+        <UsersList users={this.props.friends} />
         <div className="home__list">
           {this.props.walks.map((item, i) => (
             <Card key={i} visible={this.state.itemsVisible} data={item} />
@@ -58,9 +61,11 @@ class Home extends React.Component {
 export default connect(
   store => ({
     walks: store.home.walks,
-    user: store.login.userInfo
+    user: store.login.userInfo,
+    friends: store.home.friends
   }),
   dispatch => ({
-    findWalks: () => dispatch(findWalks())
+    findWalks: () => dispatch(findWalks()),
+    findUserFriends: user => dispatch(findUserFriends(user))
   })
 )(Home);

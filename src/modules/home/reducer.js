@@ -1,8 +1,9 @@
-import { FIND_WALKS_RESPONSE } from './actions';
+import { FIND_WALKS_RESPONSE, FIND_FRIENDS_RESPONSE } from './actions';
 
 const initialState = {
   loading: false,
-  walks: []
+  walks: [],
+  friends: []
 };
 
 const home = (state = initialState, action) => {
@@ -12,7 +13,11 @@ const home = (state = initialState, action) => {
         ...state,
         walks: action.walks
       };
-
+    case FIND_FRIENDS_RESPONSE:
+      return {
+        ...state,
+        friends: action.friends
+      };
     default:
       return state;
   }
