@@ -11,6 +11,7 @@ import {
   Redirect
 } from 'react-router-dom';
 import PrivateRoute from './components/privateRoute/PrivateRoute';
+import WalkInfo from './modules/walkInfo/WalkInfo';
 
 function App(props) {
   const { userInfo } = props;
@@ -30,9 +31,16 @@ function App(props) {
               />
             )}
           </Route>
-          <PrivateRoute path="/">
+          <PrivateRoute path="/" exact={true}>
             <Home />
           </PrivateRoute>
+          <PrivateRoute path="/walk/:id" restrictedTo={['admin']}>
+            <WalkInfo />
+          </PrivateRoute>
+          <Route path="/not-allowed">
+            <div>No tienes permisos para ver esta ruta</div>
+            <a href="/">Volver a home</a>
+          </Route>
         </Switch>
       </Router>
     </div>

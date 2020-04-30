@@ -4,9 +4,13 @@ import './card.scss';
 // class Card extends React.Component { // Este caso deberiamos implementar el render
 // function Card(props){
 const Card = props => {
-  const { data, visible } = props;
+  const { data, visible, onClick } = props; 
+
   return (
-    <div className={'card' + (visible ? ' visible' : '')}>
+    <div
+      className={'card' + (visible ? ' visible' : '')}
+      onClick={() => (onClick ? onClick() : null)}
+    >
       <div className="content">{data.name}</div>
       <div className="options">
         <div>elemento 1</div>

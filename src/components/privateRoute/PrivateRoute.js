@@ -2,17 +2,21 @@ import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-const PrivateRoute = ({ children, user, ...rest }) => {
+const PrivateRoute = ({ children, user, restrictedTo, ...rest }) => {
+  const userIsLogged = user != null;
+  const userHasPermission =
+    userIsLogged && (!restrictedTo || restrictedTo.indexOf(user.rol) != -1);
+
   return (
     <Route
       {...rest}
       render={({ location }) =>
-        user ? (
+        userHasPermission ? (
           children
         ) : (
           <Redirect
             to={{
-              pathname: '/login',
+              pathname: userIsLogged ? '/not-allowed' : '/login',
               state: { from: location }
             }}
           />
