@@ -12,6 +12,7 @@ import {
 } from 'react-router-dom';
 import PrivateRoute from './components/privateRoute/PrivateRoute';
 import WalkInfo from './modules/walkInfo/WalkInfo';
+import NewWalk from './modules/newWalk/NewWalk';
 
 function App(props) {
   const { userInfo } = props;
@@ -36,6 +37,9 @@ function App(props) {
           </PrivateRoute>
           <PrivateRoute path="/walk/:id" restrictedTo={['admin']}>
             <WalkInfo />
+          </PrivateRoute>
+          <PrivateRoute path="/new-walk">
+            <NewWalk />
           </PrivateRoute>
           <Route path="/not-allowed">
             <div>No tienes permisos para ver esta ruta</div>

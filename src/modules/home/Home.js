@@ -61,6 +61,7 @@ class Home extends React.Component {
         {/* <div className="walk_detail_control">
           <ActiveWalkDetail />
           </div> */}
+        <button className="button" onClick={() => (window.location = '/new-walk')}>Añadir paseo</button>
       </div>
     );
   }
