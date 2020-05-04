@@ -3,6 +3,10 @@ import { connect } from 'react-redux';
 import './login.scss';
 import { login } from './actions';
 import { IoIosInformationCircleOutline } from 'react-icons/io';
+import LottieAnimation, {
+  LOTTIE_ANIMATION_TYPE
+} from '../../components/lottie/Lottie';
+
 import { useTranslation } from 'react-i18next';
 
 const Login = props => {
@@ -54,7 +58,11 @@ const Login = props => {
           </div>
         </form>
       )}
-      {loading && <div className="login__loading">Cargando</div>}
+      {loading && (
+        <div className="login__loading">
+          <LottieAnimation animation={LOTTIE_ANIMATION_TYPE.LOADING} />
+        </div>
+      )}
     </div>
   );
 };
