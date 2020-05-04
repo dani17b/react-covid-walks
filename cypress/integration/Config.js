@@ -7,13 +7,13 @@ const Config = {
       isRegistered: true
     },
     {
-      login: 'juan',
+      login: 'jose',
       password: '1234',
       numFriends: 2,
       isRegistered: true
     },
     {
-      login: 'juan2',
+      login: 'juan',
       password: '1234',
       numFriends: 2,
       isRegistered: false

@@ -8,7 +8,7 @@ export const serverMockConfig = {
   endpoints: {
     '/login': {
       POST: credentials => {
-        if (['pepe', 'juan'].indexOf(credentials.login) === -1) {
+        if (['pepe', 'jose'].indexOf(credentials.login) === -1) {
           return {
             error: 'USER_NOT_FOUND'
           };

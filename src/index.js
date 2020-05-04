@@ -8,8 +8,11 @@ import { Provider } from 'react-redux';
 import { I18nextProvider } from "react-i18next";
 import i18next from 'i18next';
 import { configureI18N } from './config/I18nConfig';
+import registerStore from 'cypress-redux/registerStore'
 
 const store = configureAppStore({});
+registerStore(store);
+
 Promise.all([configureI18N()])
     .then(x=>
         {
