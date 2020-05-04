@@ -14,6 +14,9 @@ describe('01 Login', () => {
 
       // Click en el boton de login
       cy.get('.login__form__button').click();
+
+      // Opcion alternativa
+      // cy.loginUser(user);
     });
 
     if (user.isRegistered) {
