@@ -1,0 +1,12 @@
+{
+	"etiquetaUsuario" :
+		{
+		"texto" : "Usuario"
+		, "descripcion" : "Especifique el nombre del usuario"
+		}
+	, "etiquetaContraseña" :
+		{
+		"texto" : "Contraseña"
+		, "descripcion" : "Especifique la contraseña del usuario"
+		}
+}

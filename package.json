@@ -18,6 +18,8 @@
     "redux-thunk": "^2.3.0",
     "leaflet": "^1.6.0",
     "react-leaflet": "^2.6.3"
+    "i18next": "^19.4.4",
+    "react-i18next": "^11.4.0"
   },
   "scripts": {
     "start": "react-app-rewired start",
