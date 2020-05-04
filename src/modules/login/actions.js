@@ -1,4 +1,5 @@
 import { fetch } from '../../server';
+import i18next from 'i18next';
 
 export const USER_LOGIN_REQUEST = 'USER_LOGIN_REQUEST';
 export const USER_LOGIN_RESPONSE = 'USER_LOGIN_RESPONSE';
@@ -25,6 +26,7 @@ export const login = credentials => {
           });
         } else {
           localStorage.setItem(USER_INFO, JSON.stringify(userInfo));
+          i18next.changeLanguage(userInfo.idioma);
           dispatch({
             type: USER_LOGIN_RESPONSE,
             userInfo

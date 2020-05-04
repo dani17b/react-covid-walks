@@ -1,10 +1,12 @@
 import React from 'react';
 import './card.scss';
+import { useTranslation } from 'react-i18next';
 
 // class Card extends React.Component { // Este caso deberiamos implementar el render
 // function Card(props){
 const Card = props => {
-  const { data, visible, onClick } = props; 
+  const { data, visible, onClick } = props;
+  const { t } = useTranslation('common');
 
   return (
     <div
@@ -13,9 +15,9 @@ const Card = props => {
     >
       <div className="content">{data.name}</div>
       <div className="options">
-        <div>elemento 1</div>
-        <div>elemento 2</div>
-        <div>elemento 3</div>
+        <div>{t('elemento1.descripcion')}</div>
+        <div>{t('elemento2.descripcion')}</div>
+        <div>{t('elemento3.descripcion')}</div>
       </div>
     </div>
   );
