@@ -12,7 +12,9 @@ import {
 } from 'react-router-dom';
 import PrivateRoute from './components/privateRoute/PrivateRoute';
 import WalkInfo from './modules/walkInfo/WalkInfo';
+import NewWalk from './modules/newWalk/NewWalk';
 import FriendInfo from './modules/friendInfo/FriendInfo';
+
 
 function App(props) {
   const { userInfo } = props;
@@ -37,6 +39,9 @@ function App(props) {
           </PrivateRoute>
           <PrivateRoute path="/walk/:id" restrictedTo={['admin']}>
             <WalkInfo />
+          </PrivateRoute>
+          <PrivateRoute path="/new-walk">
+            <NewWalk />
           </PrivateRoute>
           <PrivateRoute path="/friend/:id" restrictedTo={['admin']}>
             <FriendInfo />
