@@ -1,4 +1,13 @@
 .walk_info {
-  background-color: red;
   flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.leaflet-container {
+  margin-top: 20px;
+  background-color: white;
+  overflow: hidden;
+  height: 400px;
+  width: 600px;
 }
