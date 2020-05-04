@@ -12,11 +12,11 @@ const Carrusel = () => {
     <div className="carousel-element">
       <Carousel>
         <div className="phto">
-          <img src={photo1} />
+          <img src={photo1} alt="Descripcion de la foto"/>
           <p className="legend">Legend 1</p>
         </div>
         <div>
-          <img src={photo2} />
+          <img src={photo2} alt="Descripcion de la foto"/>
           <p className="legend">Legend 2</p>
         </div>
       </Carousel>

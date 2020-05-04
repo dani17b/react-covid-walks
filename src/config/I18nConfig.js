@@ -7,7 +7,7 @@ export function configureI18N() {
       debug: true,
       saveMissing: true,
       missingKeyHandler: function(lng, ns, key, fallbackValue) {
-        console.log(`Error recuperando ${lng}.${ns}.${key} (${fallbackValue})`);
+        // console.log(`Error recuperando ${lng}.${ns}.${key} (${fallbackValue})`);
       },
       fallbackLng: 'es',
       // React already does escaping
