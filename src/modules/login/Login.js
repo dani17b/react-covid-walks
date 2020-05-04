@@ -3,9 +3,16 @@ import { connect } from 'react-redux';
 import './login.scss';
 import { login } from './actions';
 import { IoIosInformationCircleOutline } from 'react-icons/io';
+import LottieAnimation, {
+  LOTTIE_ANIMATION_TYPE
+} from '../../components/lottie/Lottie';
+
+import { useTranslation } from 'react-i18next';
 
 const Login = props => {
   const { login, loading, error } = props;
+
+  const { t } = useTranslation('login');
 
   const [userLogin, setUserLogin] = useState({ login: '', password: '' });
 
@@ -23,7 +30,7 @@ const Login = props => {
           <input
             type="text"
             className="login__form__input"
-            placeholder="Nombre de usuario"
+            placeholder={t('etiquetaUsuario.descripcion')}
             value={userLogin.login}
             onChange={e =>
               setUserLogin({ ...userLogin, login: e.target.value })
@@ -32,7 +39,7 @@ const Login = props => {
           <input
             type="password"
             className="login__form__input"
-            placeholder="Contraseña"
+            placeholder={t('etiquetaContraseña.descripcion')}
             value={userLogin.password}
             onChange={e =>
               setUserLogin({ ...userLogin, password: e.target.value })
@@ -51,7 +58,11 @@ const Login = props => {
           </div>
         </form>
       )}
-      {loading && <div className="login__loading">Cargando</div>}
+      {loading && (
+        <div className="login__loading">
+          <LottieAnimation animation={LOTTIE_ANIMATION_TYPE.LOADING} />
+        </div>
+      )}
     </div>
   );
 };

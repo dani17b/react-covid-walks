@@ -1,5 +1,6 @@
 {
     "login" : "jose",
     "name" : "Jose",
-    "rol" : "user"
+    "rol" : "user",
+    "idioma" : "es"
 }
