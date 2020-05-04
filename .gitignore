@@ -23,3 +23,8 @@ yarn-debug.log*
 yarn-error.log*
 
 package-lock.json
+
+#Cypress generated files
+.nyc_output/
+/cypress/videos
+
